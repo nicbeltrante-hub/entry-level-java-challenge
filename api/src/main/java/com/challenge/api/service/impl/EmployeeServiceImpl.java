@@ -3,14 +3,13 @@ package com.challenge.api.service.impl;
 import com.challenge.api.model.Employee;
 import com.challenge.api.model.EmployeeImpl;
 import com.challenge.api.service.EmployeeService;
-import org.springframework.stereotype.Service;
-
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import org.springframework.stereotype.Service;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -25,7 +24,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     /**
      * @implNote Constructor automatically creates some mock employees for testing.
      */
-    public EmployeeServiceImpl(){
+    public EmployeeServiceImpl() {
         createMockEmployee("Nicoletta", "Beltrante", "Associate Software Engineer", 60000, 25);
         createMockEmployee("Bruce", "Wayne", "CEO", 1000000, 32);
         createMockEmployee("Peter", "Parker", "Journalist", 55000, 19);
@@ -61,33 +60,32 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @return List of all employees within company
      */
     @Override
-   public List<Employee> getAllEmployees(){
-       return new ArrayList<>(employeeMap.values());
-   }
+    public List<Employee> getAllEmployees() {
+        return new ArrayList<>(employeeMap.values());
+    }
 
     /**
      * @param uuid UUID of desired employee
      * @return Employee
      */
-   @Override
-   public Employee getEmployeeByUuID(UUID uuid){
-       Employee targetEmployee = employeeMap.get(uuid);
-       if (targetEmployee == null) {
-           throw new RuntimeException("Employee not found: " + uuid);
-       }
-       return targetEmployee;
-   }
+    @Override
+    public Employee getEmployeeByUuID(UUID uuid) {
+        Employee targetEmployee = employeeMap.get(uuid);
+        if (targetEmployee == null) {
+            throw new RuntimeException("Employee not found: " + uuid);
+        }
+        return targetEmployee;
+    }
 
     /**
      *
      * @param employee Employee to be created
      * @return Employee that was created
      */
-   @Override
-    public Employee createEmployee(Employee employee){
+    @Override
+    public Employee createEmployee(Employee employee) {
         employee.setUuid(UUID.randomUUID());
         employeeMap.put(employee.getUuid(), employee);
         return employee;
-   }
-
+    }
 }

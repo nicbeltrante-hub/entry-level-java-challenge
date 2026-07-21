@@ -6,6 +6,8 @@ import java.util.UUID;
 
 public interface EmployeeService {
     List<Employee> getAllEmployees();
+
     Employee getEmployeeByUuID(UUID uuid);
+
     Employee createEmployee(Employee employee);
 }

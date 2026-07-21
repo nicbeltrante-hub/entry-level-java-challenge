@@ -3,7 +3,7 @@ package com.challenge.api.model;
 import java.time.Instant;
 import java.util.UUID;
 
-public class EmployeeImpl implements Employee{
+public class EmployeeImpl implements Employee {
 
     private UUID uuid;
     private String firstName;
@@ -17,92 +17,92 @@ public class EmployeeImpl implements Employee{
     private Instant terminationDate;
 
     @Override
-    public UUID getUuid(){
+    public UUID getUuid() {
         return uuid;
     }
 
     @Override
-    public void setUuid(UUID uuid){
+    public void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
 
     @Override
-    public String getFirstName(){
+    public String getFirstName() {
         return firstName;
     }
 
     @Override
-    public void setFirstName(String name){
+    public void setFirstName(String name) {
         this.firstName = name;
     }
 
     @Override
-    public String getLastName(){
+    public String getLastName() {
         return lastName;
     }
 
     @Override
-    public void setLastName(String name){
+    public void setLastName(String name) {
         this.lastName = name;
     }
 
     @Override
-    public String getFullName(){
+    public String getFullName() {
         return fullName;
     }
 
     @Override
-    public void setFullName(String name){
+    public void setFullName(String name) {
         this.fullName = name;
     }
 
     @Override
-    public Integer getSalary(){
+    public Integer getSalary() {
         return salary;
     }
 
     @Override
-    public void setSalary(Integer salary){
+    public void setSalary(Integer salary) {
         this.salary = salary;
     }
 
     @Override
-    public Integer getAge(){
+    public Integer getAge() {
         return age;
     }
 
     @Override
-    public void setAge(Integer age){
+    public void setAge(Integer age) {
         this.age = age;
     }
 
     @Override
-    public String getJobTitle(){
+    public String getJobTitle() {
         return jobTitle;
     }
 
     @Override
-    public void setJobTitle(String jobTitle){
+    public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
     }
 
     @Override
-    public String getEmail(){
+    public String getEmail() {
         return email;
     }
 
     @Override
-    public void setEmail(String email){
+    public void setEmail(String email) {
         this.email = email;
     }
 
     @Override
-    public Instant getContractHireDate(){
+    public Instant getContractHireDate() {
         return hireDate;
     }
 
     @Override
-    public void setContractHireDate(Instant date){
+    public void setContractHireDate(Instant date) {
         this.hireDate = date;
     }
 
@@ -111,12 +111,12 @@ public class EmployeeImpl implements Employee{
      * @return null, if Employee has not been terminated.
      */
     @Override
-    public Instant getContractTerminationDate(){
+    public Instant getContractTerminationDate() {
         return terminationDate;
     }
 
     @Override
-    public void setContractTerminationDate(Instant date){
+    public void setContractTerminationDate(Instant date) {
         this.terminationDate = date;
     }
 }

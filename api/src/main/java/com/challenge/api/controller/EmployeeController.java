@@ -1,11 +1,10 @@
 package com.challenge.api.controller;
 
 import com.challenge.api.model.Employee;
-import java.util.List;
-import java.util.UUID;
-
 import com.challenge.api.model.EmployeeImpl;
 import com.challenge.api.service.EmployeeService;
+import java.util.List;
+import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,7 +12,6 @@ import org.springframework.web.server.ResponseStatusException;
 /**
  * Fill in the missing aspects of this Spring Web REST Controller. Don't forget to add a Service layer.
  */
-
 @RestController
 @RequestMapping("/api/v1/employee")
 public class EmployeeController {
@@ -46,7 +44,7 @@ public class EmployeeController {
     public Employee getEmployeeByUuid(@PathVariable UUID uuid) {
         try {
             return employeeService.getEmployeeByUuID(uuid);
-        } catch (RuntimeException exception){
+        } catch (RuntimeException exception) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage());
         }
     }

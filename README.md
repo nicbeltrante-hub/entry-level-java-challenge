@@ -52,3 +52,33 @@ To format code according to style guidelines, you can run **spotlessApply** task
 
 The spotless plugin will also execute check-and-validation tasks as part of the gradle **build** task.
 `./gradlew build`
+
+# Notes on My Implementation
+
+## Model
+I created a file called EmployeeImpl to implement the Employee interface. I overrode all of the functions within it and declared the relevant variables.
+
+## Controller
+I kept the controller file intentionally minimal, with each function calling the service to actually run business logic. 
+
+Since this assessment was only with three APIs, I only created a path for the getEmployeeByUuid function, as that needed a parameter. A GET request without a parameter would automatically map to getAllEmployees, and a POST request would automatically map to createEmployee.
+
+I used EmployeeImpl as a RequestBody within the createEmployee parameter to convert the incoming data into its existing structure.
+
+## Service
+I created a service interface that defined all functions, and then I created a separate implementation file that implemented them. 
+
+Within the impl file, I created a ConcurrentHashMap to store employees locally. I made this decision because multiple HTTP requests can be received at once, and a ConcurrentHashMap protects against this, while a regular HashMap would not. 
+
+I created a helper method called createMockEmployees to populate the employee ConcurrentHashMap for testing if my APIs worked. I had the constructor call this method three times with hardcoded values to test against. 
+
+The implementation of the functions themselves were simple:
+
+I returned an ArrayList of the employee map's values for getAllEmployees. I chose to use ArrayList instead of just using employeeMap.values() because ConcurrentHashMap returns a Collection and not the expected List. 
+
+I used employeeMap.get(uuid) to implement getEmployeeByUuID, and I checked if the value was null before returning. 
+
+For createEmployee, I set the UUID using the setUuid function within the Employee model with UUID.randomUUID() as a parameter. I then used employeeMap.put to put in the UUID and the Employee object within the map as a key-value pair.
+
+
+
